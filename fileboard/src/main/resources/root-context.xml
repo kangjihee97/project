@@ -58,5 +58,11 @@
 		destroy-method="clearCache">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
-
+	
 </beans>
+
+
+	<!-- scan -->
+    <context:component-scan base-package="kr.co.service"></context:component-scan>
+    <context:component-scan base-package="kr.co.dao"></context:component-scan>
+    <context:component-scan base-package="kr.co.vo"></context:component-scan>

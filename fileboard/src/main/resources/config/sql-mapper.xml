@@ -9,4 +9,24 @@
 		insert into board(board_num, title, content, writer, password)
 			values(board_seq.nextval, #{title}, #{content}, #{writer}, #{password})
 	</insert>
+	
+	<select id="list" resultType="kr.co.vo.BoardVo">
+		select board_num, title, writer, regDate, modDate from board
+			order by board_num desc
+	</select>
+	
+	<select id="read" parameterType="int" resultType="kr.co.vo.BoardVo">
+		select board_num, title, content, writer, regDate, modDate
+			from board where board_num = #{board_num}
+	</select>
+	
+	<update id="update" parameterType="kr.co.vo.BoardVo">
+		update board set title = #{title},
+						content = #{content}
+				where board_num = #{boardNum}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from board where board_num = #{boardNum}
+	</delete>
 </mapper>
